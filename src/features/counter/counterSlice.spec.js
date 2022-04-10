@@ -13,6 +13,7 @@ describe('counter reducer', () => {
     expect(counterReducer(undefined, { type: 'unknown' })).toEqual({
       value: 0,
       status: 'idle',
+      
     });
   });
 
