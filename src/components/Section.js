@@ -9,7 +9,7 @@ function Section({
 	isCar,
 	leftBtnText,
 	rightBtnText,
-	noRightBtn,backgroundImage
+	noRightBtn, backgroundImage
 }) {
 	function handleScrollDown() {
 
@@ -31,7 +31,7 @@ function Section({
 				</Fade>
 			</TextField>
 			<div className="bottom-buttons">
-				<ButtonsField>
+				<ButtonsField className='buttonsField'>
 					<Fade left>
 						{leftBtnText && <button className="btn-1">{leftBtnText}</button>}
 					</Fade>
@@ -42,7 +42,7 @@ function Section({
 				<NavigationButton>
 					<Fade bottom>
 						<a href='#'>
-						<img alt="expand-more" onClick={handleScrollDown} src='/images/expand_more_black_24dp.svg' />
+							<img alt="expand-more" onClick={handleScrollDown} src='/images/expand_more_black_24dp.svg' />
 
 						</a>
 					</Fade>
@@ -68,6 +68,12 @@ const Wrap = styled.div`
 	background-image: url(${props => `/images/${props.backgroundImage}`});
 	.bottom-buttons {
 		width: 100%;
+	}
+		@media screen and (max-width: 600px) {
+		
+		.buttonsField {
+			margin-bottom: -2rem;
+		}
 	}
 `;
 const TextField = styled.div`
