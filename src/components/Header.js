@@ -1,54 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import styled from 'styled-components';
-import Logo from '../images/logo.svg';
-import Close from '../images/close_black_24dp.svg';
 const Header = () => {
 	const [hidden, setHidden] = useState(true);
 
 	function handleClick() {
 		setHidden((prevState) => !prevState);
 	}
+	const ref = useRef(null);
+	const handleClickOutside = (event) => {
+		if (ref.current && !ref.current.contains(event.target)) {
+			setHidden(true);
+		}
+	};
+	useEffect(() => {
+		document.addEventListener('click', handleClickOutside, true);
+		return () => {
+			document.removeEventListener('click', handleClickOutside, true);
+		};
+	}, []);
 	return (
 		<Container>
-			<a className="Logo" href="#">
-				<img src={Logo} />
+			<a className="Logo" href="#/">
+				<img alt="logo" src='/images/logo.svg' />
 			</a>
 			<LeftLinks>
-				<a className='link' href="#">Model S</a>
-				<a className='link' href="#">Model 3</a>
-				<a className='link' href="#">Model X</a>
-				<a className='link' href="#">Model Y</a>
-				<a className='link' href="#">Solar Roof</a>
-				<a className='link' href="#">Solar Panels</a>
+				<a className='link' href="#/">Model S</a>
+				<a className='link' href="#/">Model 3</a>
+				<a className='link' href="#/">Model X</a>
+				<a className='link' href="#/">Model Y</a>
+				<a className='link' href="#/">Solar Roof</a>
+				<a className='link' href="#/">Solar Panels</a>
 			</LeftLinks>
 			<RightLinks>
-				<a className='link' href="#">Shop</a>
-				<a className='link' href="#">Account</a>
+				<a className='link' href="#/">Shop</a>
+				<a className='link' href="#/">Account</a>
 			</RightLinks>
 			<Menu onClick={handleClick}>
 				<span className='link'>Menu</span>
 			</Menu>
-			<SideBar hidden={hidden}>
-				<img onClick={handleClick} src={Close} />
-				{/* <CloseIcon /> */}
-				<a href="#">Model S</a>
-				<a href="#">Model 3</a>
-				<a href="#">Model X</a>
-				<a href="#">Model Y</a>
-				<a href="#">Solar Roof</a>
-				<a href="#">Solar Panels</a>
-
-				<a href="#">Existing Inventory</a>
-				<a href="#">Used Inventory</a>
-				<a href="#">Trade-In</a>
-				<a href="#">Test Drive</a>
-				<a href="#">Powerwall</a>
-				<a href="#">Commercial Energy</a>
-				<a href="#">Utilities</a>
-				<a href="#">Charging</a>
-				<a href="#">Find Us</a>
-				<a href="#">Support</a>
-				<a href="#">Investor Relations</a>
+			<SideBar ref={ref} hidden={hidden}>
+				<img alt="close-navbar" onClick={handleClick} src='/images/close_black_24dp.svg' />
+				<a href="#/">Model S</a>
+				<a href="#/">Model 3</a>
+				<a href="#/">Model X</a>
+				<a href="#/">Model Y</a>
+				<a href="#/">Solar Roof</a>
+				<a href="#/">Solar Panels</a>
+				<a href="#/">Existing Inventory</a>
+				<a href="#/">Used Inventory</a>
+				<a href="#/">Trade-In</a>
+				<a href="#/">Test Drive</a>
+				<a href="#/">Powerwall</a>
+				<a href="#/">Commercial Energy</a>
+				<a href="#/">Utilities</a>
+				<a href="#/">Charging</a>
+				<a href="#/">Find Us</a>
+				<a href="#/">Support</a>
+				<a href="#/">Investor Relations</a>
 			</SideBar>
 		</Container>
 	);
@@ -132,7 +140,6 @@ const SideBar = styled.aside`
 		width: 100%;
 		border-radius: 0.8rem;
 		padding: 0.5rem 0.8rem;
-
 		transition: all 0.2s ease-in-out;
 		margin-top: 0.25rem;
 		margin-bottom: 0.25rem;

@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import bg from '../images/model-3.jpg';
-import arrowDownSVG from '../images/expand_more_black_24dp.svg';
 import Fade from 'react-reveal/Fade';
 
 
@@ -16,7 +14,6 @@ function Section({
 	function handleScrollDown() {
 
 	}
-	console.log(backgroundImage);
 	return (
 		<Wrap backgroundImage={backgroundImage}>
 			<TextField>
@@ -44,7 +41,10 @@ function Section({
 				</ButtonsField>
 				<NavigationButton>
 					<Fade bottom>
-						<img onClick={handleScrollDown} src={arrowDownSVG} />
+						<a href='#'>
+						<img alt="expand-more" onClick={handleScrollDown} src='/images/expand_more_black_24dp.svg' />
+
+						</a>
 					</Fade>
 				</NavigationButton>
 			</div>
@@ -65,8 +65,7 @@ const Wrap = styled.div`
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	//${(props) => props.backgroundImage}
-	background-image: url("/src/images/model-3.jpg");
+	background-image: url(${props => `/images/${props.backgroundImage}`});
 	.bottom-buttons {
 		width: 100%;
 	}

@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import Section from './Section';
 import carInfos from '../app/carInfo.json';
 
-import AccessoriesImg from '../images/accessories.jpg';
-import solarPanelImg from '../images/solar-panel.jpg';
-import solarRoofImg from '../images/solar-roof.jpg';
 const Home = () => {
 	return (
 		<Container>
@@ -28,21 +25,21 @@ const Home = () => {
 				text="Lowest Cost Solar Panels in America"
 				leftBtnText="ORDER NOW"
 				rightBtnText="LEARN MORE"
-				backgroundImage={solarPanelImg}
+				backgroundImage='solar-panel.jpg'
 			/>
 			<Section
 				header="Solar Roof"
 				text="Produce Clean Energy From Your Roof"
 				leftBtnText="ORDER NOW"
 				rightBtnText="LEARN MORE"
-				backgroundImage={solarRoofImg}
+				backgroundImage='solar-roof.jpg'
 			/>
 			<Section
 				header="Accessories"
 				noText={true}
 				leftBtnText="ORDER NOW"
 				rightBtnText=""
-				backgroundImage={AccessoriesImg}
+				backgroundImage='accessories.jpg'
 			/>
 		</Container>
 	);
