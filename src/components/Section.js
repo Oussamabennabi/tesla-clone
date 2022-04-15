@@ -72,7 +72,7 @@ const Wrap = styled.div`
 		@media screen and (max-width: 600px) {
 		
 		.buttonsField {
-			margin-bottom: -2rem;
+			margin-top: -2rem;
 		}
 	}
 `;
