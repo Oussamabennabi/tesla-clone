@@ -70,10 +70,8 @@ const Wrap = styled.div`
 		width: 100%;
 	}
 		@media screen and (max-width: 600px) {
-		
-		.buttonsField {
-			margin-bottom: -2rem;
-		}
+		justify-content: center;
+
 	}
 `;
 const TextField = styled.div`
