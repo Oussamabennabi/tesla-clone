@@ -70,7 +70,11 @@ const Wrap = styled.div`
 		width: 100%;
 	}
 		@media screen and (max-width: 600px) {
-		justify-content: center;
+		justify-content: space-between;
+	.bottom-buttons {
+	
+			margin-bottom: 5rem;
+		}
 
 	}
 `;
